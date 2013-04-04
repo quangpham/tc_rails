@@ -1,70 +1,74 @@
 <p id="notice"><%= notice %></p>
+<% if current_user.id != @company.user_id %>
+	You don't have permission to view this company
+<% else %>
+	<p>
+	  <b>Name:</b>
+	  <%= @company.name %>
+	</p>
 
-<p>
-  <b>Name:</b>
-  <%= @company.name %>
-</p>
+	<p>
+	  <b>Description:</b>
+	  <%= @company.description %>
+	</p>
 
-<p>
-  <b>Description:</b>
-  <%= @company.description %>
-</p>
+	<p>
+	  <b>Linkedin:</b>
+	  <%= @company.linkedin_id %>
+	</p>
 
-<p>
-  <b>Linkedin:</b>
-  <%= @company.linkedin_id %>
-</p>
+	<p>
+	  <b>Facebook:</b>
+	  <%= @company.facebook_id %>
+	</p>
 
-<p>
-  <b>Facebook:</b>
-  <%= @company.facebook_id %>
-</p>
+	<p>
+	  <b>Twitter:</b>
+	  <%= @company.twitter_id %>
+	</p>
 
-<p>
-  <b>Twitter:</b>
-  <%= @company.twitter_id %>
-</p>
+	<p>
+	  <b>Address:</b>
+	  <%= @company.address %>
+	</p>
 
-<p>
-  <b>Address:</b>
-  <%= @company.address %>
-</p>
+	<p>
+	  <b>Postcode:</b>
+	  <%= @company.postcode %>
+	</p>
 
-<p>
-  <b>Postcode:</b>
-  <%= @company.postcode %>
-</p>
+	<p>
+	  <b>City:</b>
+	  <%= @company.city %>
+	</p>
 
-<p>
-  <b>City:</b>
-  <%= @company.city %>
-</p>
+	<p>
+	  <b>Country:</b>
+	  <%= @company.country %>
+	</p>
 
-<p>
-  <b>Country:</b>
-  <%= @company.country %>
-</p>
+	<p>
+	  <b>Phone number:</b>
+	  <%= @company.phone_number %>
+	</p>
 
-<p>
-  <b>Phone number:</b>
-  <%= @company.phone_number %>
-</p>
+	<p>
+	  <b>Email address:</b>
+	  <%= @company.email_address %>
+	</p>
 
-<p>
-  <b>Email address:</b>
-  <%= @company.email_address %>
-</p>
+	<p>
+	  <b>Website:</b>
+	  <%= @company.website %>
+	</p>
 
-<p>
-  <b>Website:</b>
-  <%= @company.website %>
-</p>
-
-<p>
-  <b>Industry:</b>
-  <%= @company.industry %>
-</p>
+	<p>
+	  <b>Industry:</b>
+	  <%= @company.industry %>
+	</p>
 
 
-<%= link_to 'Edit', edit_company_path(@company) %> |
-<%= link_to 'Back', companies_path %>
+	<%= link_to 'Edit', edit_company_path(@company) %> |
+	<%= link_to 'Back', companies_path %>
+<% end %>
+
