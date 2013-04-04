@@ -47,5 +47,6 @@
 </table>
 
 <br />
-
+<% if user_signed_in?%>
 <%= link_to 'New Company', new_company_path %>
+<% end %>

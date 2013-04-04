@@ -41,6 +41,7 @@ class CompaniesController < ApplicationController
   # POST /companies.json
   def create
     @company = Company.new(params[:company])
+    @company['user_id'] = current_user.id
 
     respond_to do |format|
       if @company.save
