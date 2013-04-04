@@ -1,6 +1,9 @@
 class CompaniesController < ApplicationController
   # GET /companies
   # GET /companies.json
+  
+  before_filter :authenticate_user!, except: [:index]
+  
   def index
     @companies = current_user.companies if user_signed_in?
     respond_to do |format|
