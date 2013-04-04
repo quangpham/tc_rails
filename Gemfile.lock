@@ -91,6 +91,10 @@ GEM
     kaminari (0.14.1)
       actionpack (>= 3.0.0)
       activesupport (>= 3.0.0)
+    linkedin (0.3.7)
+      hashie (~> 1.2)
+      multi_json (~> 1.0)
+      oauth (~> 0.4)
     mail (2.5.3)
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
@@ -188,6 +192,7 @@ DEPENDENCIES
   devise
   figaro
   jquery-rails
+  linkedin
   omniauth-facebook
   omniauth-linkedin
   rails (= 3.2.13)

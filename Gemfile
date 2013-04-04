@@ -44,3 +44,5 @@ gem 'omniauth-facebook'
 gem 'omniauth-linkedin'
 
 gem 'activeadmin'
+
+gem 'linkedin'
