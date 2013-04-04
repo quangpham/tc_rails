@@ -5,7 +5,8 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     # Controll if the user is signin successfull or not
     if user.persisted?
-      sign_in_and_redirect user, notice: "Signed in!"
+      sign_in_and_redirect user
+      flash.notice = "Signed in!"
     else
       session["devise.user_attributes"] = user.attributes
       #raise "shit".to_yaml
@@ -13,7 +14,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     end
     
   end
+
   
   alias_method :facebook, :all
+  alias_method :linkedin, :all
 
 end

@@ -41,5 +41,6 @@ gem 'figaro'
 
 gem 'devise'
 gem 'omniauth-facebook'
+gem 'omniauth-linkedin'
 
 gem 'activeadmin'
