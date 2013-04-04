@@ -37,6 +37,9 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'devise'
 gem 'figaro'
+
+gem 'devise'
 gem 'omniauth-facebook'
+
+gem 'activeadmin'
