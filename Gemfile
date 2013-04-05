@@ -5,8 +5,12 @@ gem 'rails', '3.2.13'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3', :group => :development
 gem 'activerecord-postgresql-adapter'
+
+group :development do
+	gem 'sqlite3'
+	gem 'nifty-generators'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -46,3 +50,5 @@ gem 'omniauth-linkedin'
 gem 'activeadmin'
 
 gem 'linkedin'
+
+gem "mocha", :group => :test
