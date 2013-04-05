@@ -10,6 +10,7 @@
     <th>Expires At</th>
     <th>Raw Info</th-->
   </tr>
+	<% if @facebook_authentications %>
   <% for facebook_authentication in @facebook_authentications %>
     <tr>
       <td><%= facebook_authentication.user_id %></td>
@@ -24,5 +25,6 @@
       <td><%= link_to "Destroy", facebook_authentication, :confirm => 'Are you sure?', :method => :delete %></td>
     </tr>
   <% end %>
+	<% end %>
 </table>
 
