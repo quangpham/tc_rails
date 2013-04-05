@@ -1,0 +1,2 @@
+rails g nifty:scaffold FacebookAuthentication user_id:integer uid:string email:string first_name:string last_name:string photo:string auth_token:string expires_at:date raw_info:text index create destroy
+rails generate active_admin:resource FacebookAuthentication

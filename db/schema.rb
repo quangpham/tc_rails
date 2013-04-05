@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130404121319) do
+ActiveRecord::Schema.define(:version => 20130405113658) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -63,6 +63,20 @@ ActiveRecord::Schema.define(:version => 20130404121319) do
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
     t.integer  "user_id"
+  end
+
+  create_table "facebook_authentications", :force => true do |t|
+    t.integer  "user_id"
+    t.string   "uid"
+    t.string   "email"
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "photo"
+    t.string   "auth_token"
+    t.date     "expires_at"
+    t.text     "raw_info"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

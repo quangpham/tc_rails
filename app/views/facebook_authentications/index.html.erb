@@ -1,0 +1,28 @@
+<table>
+  <tr>
+    <th>User</th>
+    <th>Uid</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Photo</th>
+    <!--th>Auth Token</th>
+    <th>Expires At</th>
+    <th>Raw Info</th-->
+  </tr>
+  <% for facebook_authentication in @facebook_authentications %>
+    <tr>
+      <td><%= facebook_authentication.user_id %></td>
+      <td><%= facebook_authentication.uid %></td>
+      <td><%= facebook_authentication.email %></td>
+      <td><%= facebook_authentication.first_name %></td>
+      <td><%= facebook_authentication.last_name %></td>
+      <td><%= facebook_authentication.photo %></td>
+      <!--td><%= facebook_authentication.auth_token %></td>
+      <td><%= facebook_authentication.expires_at %></td>
+      <td><%= facebook_authentication.raw_info %></td-->
+      <td><%= link_to "Destroy", facebook_authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+

@@ -1,0 +1,21 @@
+one:
+  user_id: 1
+  uid: MyString
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  photo: MyString
+  auth_token: MyString
+  expires_at: 2013-04-05
+  raw_info: MyText
+
+two:
+  user_id: 1
+  uid: MyString
+  email: MyString
+  first_name: MyString
+  last_name: MyString
+  photo: MyString
+  auth_token: MyString
+  expires_at: 2013-04-05
+  raw_info: MyText

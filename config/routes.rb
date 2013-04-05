@@ -1,5 +1,7 @@
 TcRails::Application.routes.draw do
   
+  resources :facebook_authentications
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
