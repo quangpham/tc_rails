@@ -1,2 +1,6 @@
 rails g nifty:scaffold FacebookAuthentication user_id:integer uid:string email:string first_name:string last_name:string photo:string auth_token:string expires_at:date raw_info:text index create destroy
 rails generate active_admin:resource FacebookAuthentication
+
+
+rails g nifty:scaffold LinkedinAuthentication user_id:integer uid:string email:string first_name:string last_name:string photo:string description:string headline:string industry:string location:string phone:string raw_info:text index create destroy
+rails generate active_admin:resource LinkedinAuthentication

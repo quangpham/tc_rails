@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :companies
   has_many :facebook_authentications #FIX ME
+  has_many :linkedin_authentications #FIX ME
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable and :omniauthable

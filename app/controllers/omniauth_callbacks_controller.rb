@@ -28,9 +28,19 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     
     redirect_to facebook_authentications_url
   end
-
   
+  def linkedin
+    auth = request.env["omniauth.auth"]
+    if !current_user.linkedin_authentications.find(:first, :conditions => [ "uid = ?", auth.uid,])
+      current_user.linkedin_authentications.create(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :description =>auth.info.description, :headline =>auth.info.headline, :industry =>auth.info.industry, :location =>auth.info.location, :phone =>auth.info.phone, :raw_info => auth.extra.raw_info)
+      flash.notice = "Authentication successful. Created user successfull"
+    else
+      flash.notice = "Authentication successful. User already exist"
+    end
+    
+    redirect_to linkedin_authentications_url
+  end
+   
   # alias_method :facebook, :all
   # alias_method :linkedin, :all
-
 end

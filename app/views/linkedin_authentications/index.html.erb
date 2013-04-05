@@ -1,0 +1,36 @@
+<table>
+  <tr>
+    <th>User</th>
+    <th>Uid</th>
+    <th>Email</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Photo</th>
+    <th>Description</th>
+    <th>Headline</th>
+    <th>Industry</th>
+    <th>Location</th>
+    <th>Phone</th>
+    <th>Raw Info</th>
+  </tr>
+	<% if @linkedin_authentications %>
+  <% for linkedin_authentication in @linkedin_authentications %>
+    <tr>
+      <td><%= linkedin_authentication.user_id %></td>
+      <td><%= linkedin_authentication.uid %></td>
+      <td><%= linkedin_authentication.email %></td>
+      <td><%= linkedin_authentication.first_name %></td>
+      <td><%= linkedin_authentication.last_name %></td>
+      <td><%= linkedin_authentication.photo %></td>
+      <td><%= linkedin_authentication.description %></td>
+      <td><%= linkedin_authentication.headline %></td>
+      <td><%= linkedin_authentication.industry %></td>
+      <td><%= linkedin_authentication.location %></td>
+      <td><%= linkedin_authentication.phone %></td>
+      <td><%= linkedin_authentication.raw_info %></td>
+      <td><%= link_to "Destroy", linkedin_authentication, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+	<% end %>
+</table>
+

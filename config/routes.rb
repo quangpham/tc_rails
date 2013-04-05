@@ -1,5 +1,7 @@
 TcRails::Application.routes.draw do
   
+  resources :linkedin_authentications
+
   resources :facebook_authentications
 
   ActiveAdmin.routes(self)
