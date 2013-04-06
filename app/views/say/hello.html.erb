@@ -1,0 +1,12 @@
+<h1>Say#hello</h1>
+<p>Find me in app/views/say/hello.html.erb</p>
+
+<% @search_results.each do |result| %>
+    <p><%= result.first_name + ' ' + result.last_name %></p>
+<% end %>
+
+<br>
+
+<% @company_search_results.each do |company_result| %>
+    <p><%= company_result.name %></p>
+<% end %>
