@@ -83,4 +83,12 @@ class CompaniesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def search_from_linkedin
+      client = LinkedIn::Client.new
+      client.authorize_from_access(current_user.linkedin_authentication.token, current_user.linkedin_authentication.secret)
+      
+      @company_search_results = client.search({ :keywords => [params[:company_name]]}, "company").companies.all
+      @com_data = client.company(:id => @company_search_results.first.id, :fields => %w{ id name email-domains industry logo-url specialties description locations:(address:(city state country-code) is-headquarters) employee-count-range })
+  end
 end

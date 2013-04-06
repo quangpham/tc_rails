@@ -6,7 +6,7 @@ class SayController < ApplicationController
     @search_results = client.search(:keywords => "Activeark").people.all
     #raise @search_results.to_yaml
     
-    @company_search_results = client.search({ :keywords => "Introdex"}, "company").companies.all
+    @company_search_results = client.search({ :keywords => "Framgo"}, "company").companies.all
     #raise @company_search_results.to_yaml
     
     @com_data = client.company(:id => @company_search_results.first.id, :fields => %w{ id name email-domains industry logo-url specialties description locations:(address:(city state country-code) is-headquarters) employee-count-range })

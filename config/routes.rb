@@ -1,8 +1,8 @@
 TcRails::Application.routes.draw do
   
   get "say/hello"
-
   get "say/goodbye"
+  get "companies/search_from_linkedin"
 
   resources :linkedin_authentications
   resources :facebook_authentications
