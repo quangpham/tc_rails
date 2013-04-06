@@ -1,16 +1,12 @@
 TcRails::Application.routes.draw do
   
   resources :linkedin_authentications
-
   resources :facebook_authentications
+  resources :companies
 
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
-
-  resources :companies
-
-
   devise_for :users, controllers:{omniauth_callbacks: "omniauth_callbacks"}
 
   root :to => "companies#index"
