@@ -32,7 +32,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def linkedin
     auth = request.env["omniauth.auth"]
     if !current_user.linkedin_authentication
-      current_user.linkedin_authentication = LinkedinAuthentication.new(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :description =>auth.info.description, :headline =>auth.info.headline, :industry =>auth.info.industry, :location =>auth.info.location, :phone =>auth.info.phone, :raw_info => auth.extra.raw_info)
+      current_user.linkedin_authentication = LinkedinAuthentication.new(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :description =>auth.info.description, :headline =>auth.info.headline, :industry =>auth.info.industry, :location =>auth.info.location, :phone =>auth.info.phone, :token => auth.credentials.token, :secret => auth.credentials.secret, :raw_info => auth.extra.raw_info)
       flash.notice = "Authentication successful. Created user successfull"
     else
       flash.notice = "Authentication successful. User already exist"
