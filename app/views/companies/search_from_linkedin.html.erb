@@ -1,8 +1,13 @@
-<% @company_search_results.each do |company_result| %>
-    <p><%= company_result.name %></p>
-		<p><%= company_result.id %></p>
-<% end %>
-
-<br>
-<p><%= @com_data.name %></p>
-<p><%= @com_data.description %></p>
+<table>
+	<tr>
+    <th>Name</th>
+    <th>Id</th>
+	</tr>
+	<% @company_search_results.each do |company_result| %>
+		<tr>
+	    <td><%= company_result.name %></td>
+			<td><%= company_result.id %></td>
+			<td><a href="/companies/new?lid=<%= company_result.id %>">Choose</a></td>
+		</tr>
+	<% end %>
+</table>

@@ -26,7 +26,16 @@ class CompaniesController < ApplicationController
   # GET /companies/new
   # GET /companies/new.json
   def new
-    @company = Company.new
+    unless params[:lid].empty?
+      client = LinkedIn::Client.new
+      client.authorize_from_access(current_user.linkedin_authentication.token, current_user.linkedin_authentication.secret)
+      com_data = client.company(:id => params[:lid], :fields => %w{ id name email-domains website-url industry logo-url specialties description locations:(address:(city state country-code) is-headquarters) employee-count-range })
+      #raise com_data.to_yaml
+      @company = Company.new(:description => com_data.description, :name => com_data.name, :linkedin_id =>com_data.id, :industry => com_data.industry, :website => com_data["website-url"])
+    else
+      @company = Company.new
+    end
+    
 
     respond_to do |format|
       format.html # new.html.erb
@@ -89,6 +98,6 @@ class CompaniesController < ApplicationController
       client.authorize_from_access(current_user.linkedin_authentication.token, current_user.linkedin_authentication.secret)
       
       @company_search_results = client.search({ :keywords => [params[:company_name]]}, "company").companies.all
-      @com_data = client.company(:id => @company_search_results.first.id, :fields => %w{ id name email-domains industry logo-url specialties description locations:(address:(city state country-code) is-headquarters) employee-count-range })
+      #@com_data = client.company(:id => @company_search_results.first.id, :fields => %w{ id name email-domains industry logo-url specialties description locations:(address:(city state country-code) is-headquarters) employee-count-range })
   end
 end
