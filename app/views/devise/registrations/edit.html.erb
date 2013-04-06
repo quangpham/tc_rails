@@ -27,15 +27,17 @@
 
 <h3>Social Account</h3>
 <p>
-	<% if current_user.facebook_authentications.first.uid %>
-		<a><img src="<%= current_user.facebook_authentications.first.photo %>"/></a>
+
+	<% if current_user.facebook_authentication %>
+		<a><img src="<%= current_user.facebook_authentication.photo %>"/></a>
 	<% else %>
 		<a href="/users/auth/facebook">Add Facebook Profile</a>
 	<% end %>
 	
 	<br>
-	<% if current_user.linkedin_authentications.first.uid %>
-		<a><img src="<%= current_user.linkedin_authentications.first.photo %>"/></a>
+	
+	<% if current_user.linkedin_authentication %>
+		<a><img src="<%= current_user.linkedin_authentication.photo %>"/></a>
 	<% else %>
 		<a href="/users/auth/linkedin">Add Linkedin Profile</a>
 	<% end %>

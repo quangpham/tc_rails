@@ -19,26 +19,26 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     # raise request.env["omniauth.auth"].to_yaml
     # raise current_user.email.to_yaml
     auth = request.env["omniauth.auth"]
-    if !current_user.facebook_authentications.find(:first, :conditions => [ "uid = ?", auth.uid,])
-      current_user.facebook_authentications.create(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :auth_token => auth.credentials.token, :expires_at => auth.credentials.expires_at, :raw_info => auth.extra.raw_info)
+    if !current_user.facebook_authentication
+      current_user.facebook_authentication = FacebookAuthentication.new(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :auth_token => auth.credentials.token, :expires_at => auth.credentials.expires_at, :raw_info => auth.extra.raw_info)
       flash.notice = "Authentication successful. Created user successfull"
     else
       flash.notice = "Authentication successful. User already exist"
     end
     
-    redirect_to facebook_authentications_url
+    redirect_to edit_user_registration_url
   end
   
   def linkedin
     auth = request.env["omniauth.auth"]
-    if !current_user.linkedin_authentications.find(:first, :conditions => [ "uid = ?", auth.uid,])
-      current_user.linkedin_authentications.create(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :description =>auth.info.description, :headline =>auth.info.headline, :industry =>auth.info.industry, :location =>auth.info.location, :phone =>auth.info.phone, :raw_info => auth.extra.raw_info)
+    if !current_user.linkedin_authentication
+      current_user.linkedin_authentication = LinkedinAuthentication.new(:uid => auth.uid, :first_name => auth.info.first_name, :last_name => auth.info.last_name, :email =>auth.info.email, :photo => auth.info.image, :description =>auth.info.description, :headline =>auth.info.headline, :industry =>auth.info.industry, :location =>auth.info.location, :phone =>auth.info.phone, :raw_info => auth.extra.raw_info)
       flash.notice = "Authentication successful. Created user successfull"
     else
       flash.notice = "Authentication successful. User already exist"
     end
     
-    redirect_to linkedin_authentications_url
+    redirect_to edit_user_registration_url
   end
    
   # alias_method :facebook, :all

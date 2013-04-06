@@ -1,6 +1,6 @@
 class FacebookAuthenticationsController < ApplicationController
   def index
-    @facebook_authentications = current_user.facebook_authentications if current_user
+    @facebook_authentication = current_user.facebook_authentication if current_user
   end
 
   def create
@@ -13,7 +13,7 @@ class FacebookAuthenticationsController < ApplicationController
   end
 
   def destroy
-    @facebook_authentication = current_user.facebook_authentications.find(params[:id])
+    @facebook_authentication = current_user.facebook_authentication
     @facebook_authentication.destroy
     redirect_to facebook_authentications_url, :notice => "Successfully destroyed facebook authentication."
   end
