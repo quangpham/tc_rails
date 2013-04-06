@@ -15,6 +15,6 @@ class FacebookAuthenticationsController < ApplicationController
   def destroy
     @facebook_authentication = current_user.facebook_authentication
     @facebook_authentication.destroy
-    redirect_to facebook_authentications_url, :notice => "Successfully destroyed facebook authentication."
+    redirect_to edit_user_registration_url, :notice => "Successfully destroyed facebook authentication."
   end
 end

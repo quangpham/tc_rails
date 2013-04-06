@@ -29,7 +29,8 @@
 <p>
 
 	<% if current_user.facebook_authentication %>
-		<a><img src="<%= current_user.facebook_authentication.photo %>"/></a>
+		<img src="<%= current_user.facebook_authentication.photo %>"/>
+		<%= link_to 'Delete', current_user.facebook_authentication, method: :delete, data: { confirm: 'Are you sure?' } %>
 	<% else %>
 		<a href="/users/auth/facebook">Add Facebook Profile</a>
 	<% end %>
@@ -37,7 +38,8 @@
 	<br>
 	
 	<% if current_user.linkedin_authentication %>
-		<a><img src="<%= current_user.linkedin_authentication.photo %>"/></a>
+		<img src="<%= current_user.linkedin_authentication.photo %>"/>
+		<%= link_to 'Delete', current_user.linkedin_authentication, method: :delete, data: { confirm: 'Are you sure?' } %>
 	<% else %>
 		<a href="/users/auth/linkedin">Add Linkedin Profile</a>
 	<% end %>

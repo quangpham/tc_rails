@@ -1,6 +1,6 @@
 class LinkedinAuthenticationsController < ApplicationController
   def index
-    @linkedin_authentications = current_user.linkedin_authentications if current_user
+    @linkedin_authentications = current_user.linkedin_authentication if current_user
   end
 
   def create
@@ -13,8 +13,8 @@ class LinkedinAuthenticationsController < ApplicationController
   end
 
   def destroy
-    @linkedin_authentication = current_user.linkedin_authentications.find(params[:id])
+    @linkedin_authentication = current_user.linkedin_authentication
     @linkedin_authentication.destroy
-    redirect_to linkedin_authentications_url, :notice => "Successfully destroyed linkedin authentication."
+    redirect_to edit_user_registration_url, :notice => "Successfully destroyed linkedin authentication."
   end
 end
